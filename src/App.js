@@ -1,20 +1,26 @@
-import React from "react";
+import React, { Component, Fragment } from "react";
 import { Route, Switch } from "react-router-dom";
-import Home from "./components/Home";
-import Blog from "./components/Blog";
+import BlogList from "./components/BlogList";
 import BlogForm from "./components/BlogForm";
-import NavBar from "./components/NavBar";
-import EditBlog from "./components/EditBlog";
+import { Container } from "semantic-ui-react";
+import Blog from "./components/Blog";
 
-const App = () => (
-  <Fragment>
-    <Switch>
-      <Route exact path="/" />
-      <Route exact path="/blog/new" component={NewBlog} />
-      <Route exact path="/blog/:id" component={Blog} />
-      <Route exact path="/blog/:id/edit" component={EditBlog} />
-    </Switch>
-  </Fragment>
-);
+class App extends Component {
+  render() {
+    return (
+      <Container>
+        <br />
+        <Fragment>
+          <Switch>
+            <Route exact path="/" component={BlogList} />
+            <Route exact path="/bloglist" component={BlogList} />
+            <Route exact path="/blogform" component={BlogForm} />
+            <Route exact path="/blog/:id" component={Blog} />
+          </Switch>
+        </Fragment>
+      </Container>
+    );
+  }
+}
 
 export default App;
