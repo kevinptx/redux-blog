@@ -1,6 +1,5 @@
-//create a new blog
 import React from "react";
-import { connect } from "react-router-dom";
+import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
 import { Form, Button } from "semantic-ui-react";
 
@@ -19,7 +18,7 @@ class BlogForm extends React.Component {
     dispatch({ type: "ADD_BLOG", blog: { name, body } });
     dispatch({ type: "INC_ID" });
     this.setState({ name: "", body: "" });
-    this.props.history.push(`/blogs`);
+    this.props.history.push(`/bloglist`);
   };
 
   render() {
