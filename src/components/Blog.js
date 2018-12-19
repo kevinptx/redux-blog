@@ -12,11 +12,11 @@ const Blog = ({ id, name, body, dispatch }) => (
         {body}
       </Segment>
     </Link>
-
-    <br />
     <Button onClick={() => dispatch({ type: "DELETE", id })}>
       Delete Blog
     </Button>
+    <br />
+    <br />
   </div>
 );
 
