@@ -12,10 +12,12 @@ class BlogForm extends React.Component {
 
   handleSubmit = e => {
     e.preventDefault();
+    //this is what's coming through with the connect and it's how to talk to the reducer, through the dispatch.
     const { dispatch, id } = this.props;
+    //this is the form at the top.
     const { name, body } = this.state;
     const blog = { name, body, id };
-    dispatch({ type: "ADD_BLOG", blog: { name, body } });
+    dispatch({ type: "ADD_BLOG", blog });
     dispatch({ type: "INC_ID" });
     this.setState({ name: "", body: "" });
     this.props.history.push(`/bloglist`);
